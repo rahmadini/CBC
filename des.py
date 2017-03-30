@@ -107,8 +107,15 @@ def inisialisasi():
 	      22, 11, 4, 25 ]
 
 	return IP, IP_INV, FP, PC1, PC2, EXPANSION, SBOXES, ROTATION_SCHEDULE
-f __name__ == '__main__':
-    pc1, left_rotations, pc2, ip, expansion, sbox, p, fp = init()
-    mode = 'encrypt'
-    plaintext = raw_input("plaintext : ")
 
+# Inisialisasi
+    def __init__(self, key, pad=None):
+        if len(key) != 8:
+            raise ValueError("Invalid DES key size. Key must be exactly 8 bytes long.")
+        _baseDes.__init__(self, pad)
+        self.key_size = 8
+        self.L = []
+        self.R = []
+        self.Kn = [ [0] * 48 ] * 16	# 16 48-bit keys (K1 - K16)
+        self.final = []
+        self.setKey(key)
