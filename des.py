@@ -106,4 +106,9 @@ def inisialisasi():
 	      19, 13, 30, 6,
 	      22, 11, 4, 25 ]
 
-return IP, IP_INV, FP, PC1, PC2, EXPANSION, SBOXES, ROTATION_SCHEDULE
+	return IP, IP_INV, FP, PC1, PC2, EXPANSION, SBOXES, ROTATION_SCHEDULE
+f __name__ == '__main__':
+    pc1, left_rotations, pc2, ip, expansion, sbox, p, fp = init()
+    mode = 'encrypt'
+    plaintext = raw_input("plaintext : ")
+
