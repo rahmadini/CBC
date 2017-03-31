@@ -65,8 +65,9 @@ Skema dari mode operasi CBC dapat digambarkan sebagai berikut:
 7. IV diberikan oleh pengguna atau dibangkitkan secara acak oleh program. IV bersifat tidak rahasia.
 8. Jadi untuk menghasilkan blok ciphertext pertama (Ci), IV digunakan untuk menggantikan blok ciphertext sebelumnya C0.
 9. Sebaliknya pada dekripsi, blok plaintext pertama diperoleh dengan cara meng-XOR-kan IV dengan hasil dekripsi terhadap blok ciphertext pertama.
+#
 Secara matematis enkripsi dan dekripsi dengan mode CBC dinyatakan sebagai berikut:
-![alt text](https://github.com/rahmadini/CBC/blob/master/endekrip.png)
+  ![alt text](https://github.com/rahmadini/CBC/blob/master/endekrip.png)
 #
 ## Sifat-sifat dari mode operasi CBC:
 1. Lebih aman dari active attacks dibandingkan mode operasi ECB
