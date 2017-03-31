@@ -159,7 +159,7 @@ def IP_INV(X):
     chiper = ''                    
     for x in range(len(ip_inv)):
         chiper += X[ip_inv[x]-1]
-    return chiper 
+    return chiper
     
 def DES(iterasi, iterasi_add):
     L0, R0 = IP(i)
@@ -183,6 +183,7 @@ def DES(iterasi, iterasi_add):
 def ENCRYPT(bin_iv):
     iterasi = 0
     iterasi_add = 1
+    
     bin_plaintext[i] = XOR(bin_plaintext[i] ,bin_iv).zfill(64)
     DES(iterasi, iterasi_add)
     hasil.append(IP_INV(R[16]+R[15]))
@@ -192,27 +193,52 @@ def ENCRYPT(bin_iv):
 def DECRYPT(bin_iv):
     iterasi = 15
     iterasi = -1
-    hasil =
-    DES(iterasi, iterasi_add)
+
+    dummy = bin_iv
     
+    
+    
+    dummy = XOR(bin_ciphertext,IP_INV(R[16]+R[15])).zfill(64)
+    DES()
+    dummy = XOR(dummy,IP_INV(R[16]+R[15])).zfill(64)
+        
+    hasil.append(dummy)
+
+
+    dummy = bin_plaintext[i]
+    bin_plaintext[i] = bin_iv
+    
+    DES()
+    
+    dummy = XOR(dummy,IP_INV(R[16]+R[15])).zfill(64)
+    hasil.append(dummy)
     
 if __name__ == '__main__':
     ip, pc1, pc2, expansion, sboxes, p_box, left_rotations, ip_inv=inisialisasi()
     mode='encrypt'
-    mode = raw_input("encrypt/decrypt : ")
-    file_data = raw_input("file : ")
-    with open(file_data, 'rb') as f:
-        data = f.read()
-
-    if mode == 'encrypt' or mode == 'decrypt' :
+    mode = int(raw_input("ENKRIPSI (1)/DEKRIPSI (2) : "))
+    data = raw_input("Input data : ")
+    
+    if mode == 1 or mode == 2 :
         bin_plaintext = ''
+        bin_ciphertext = ''
         data = [data[i:i+8] for i in range(0, len(data), 8) ]
-        bin_plaintext = [string2binary(x) for x in data]
+        for i in range (0,len(data)):
+            if len(data[i])<8 :
+                jumlah_data=8-len(data[i])
+                for j in range (len(data[i]), 8):
+                    data[i]+= str(jumlah_data)
+
+        if mode == 1:
+            bin_plaintext = [string2binary(x) for x in data]
+        elif mode == 2:
+            bin_ciphertext = [string2binary(x) for x in data]
+        print data
     else:
         print ValueError('Mode salah')
-
-    key = 'inikunci'      
-    IV = '12345678'
+    
+    IV = raw_input("iv : ")
+    key = raw_input("key : ")
     bin_iv = string2binary(IV)
     bin_key = string2binary(key)      
     hasil = []   
@@ -222,11 +248,11 @@ if __name__ == '__main__':
         R = []        
         bin_iv = ENCRYPT(bin_iv)        
             
-    if mode == 'encrypt' or mode == 'ENCRYPT' :
+    if mode == 1 :
         hasil = ''.join(binary2string(x) for x in hasil)
         print hasil
         with open('hasil.txt', 'wb') as f:
             data = f.write(hasil)
-    elif mode == 'decrypt' or mode == 'DECRYPT' :
+    elif mode == 2 :
         hasil = ''.join(binary2string(x) for x in hasil)        
         print hasil
