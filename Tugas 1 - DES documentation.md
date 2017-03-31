@@ -54,3 +54,12 @@ Cipher Block Chaining(CBC) adalah modus operasi untuk block cipher (salah satu d
 - Memerlukan *Initialization Vector* (IV)
   - Harus diketahui *sender* dan *receiver*
   - Memerlukan kanal komunikasi atau cara pengiriman lain yang aman
+#
+## Tahapan CBC
+Skema dari mode operasi CBC dapat digambarkan sebagai berikut:
+
+1. Mula-mula *sender* harus meng-XOR-kan plaintext dengan **IV**
+2. Kemudian dienkripsi
+3. Setelah itu dikirimkan ciphertext pertamanya kepada *receiver*
+4. Untuk plaintext ke-2 dan selanjutnya, sebelum dienkripsi *sender* harus meng-XOR-kan terlebih dahulu dengan ciphertext sebelumnya.
+5. Setelah dienkripsi, baru pesan tersebut dapat dikirimkan kepada *receiver* sebagai ciphertext 2 dan seterusnya.
