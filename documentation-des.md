@@ -16,6 +16,10 @@ Data Encryption Standard (DES) memiliki dua fungsi input, yaitu:
 1. Plaintext untuk dienkripsi dengan panjang 64 bit. 
 2. Kunci dengan panjang 56 bit. 
 #
+Skema dari pemrosesan DES adalah seperti gambar berikut :
+  
+![alt text](https://github.com/rahmadini/CBC/blob/master/kunci-des.jpg)
+#
 Proses initial permutasi (IP) Plaintext ada tiga:
 1. Plaintext 64 bit diproses di Initial Permutasi (IP) dan menyusun kembali bit untuk menghasilkan permutasi input. 
 2. Langkah untuk melakukan perulangan kata dari plaintext sebanyak 16 dengan melakukan fungsi yang sama, yang menghasilkan fungsi permutasi substitusi, yang mana output akhir dari hal tersebut berisi 64 bit (fungsi dari plaintext dan kunci), masuk ke swap, dan menghasilkan preouput. 
@@ -33,7 +37,11 @@ Cipher Block Chaining(CBC) adalah modus operasi untuk block cipher (salah satu d
 - Blok-blok saling terhubung dalam enkripsi
 - Blok cipher sebelumnya digunakan dalam menghitung blok cipher selanjutnya
 - Menggunakan *Initial Vector* (IV) untuk memulai proses
+  
+![alt text](https://github.com/rahmadini/CBC/blob/master/CBC.png)
 - Penggunaan enkripsi berukuran besar dan autentikasi
+  
+![alt text](https://github.com/rahmadini/CBC/blob/master/CBC2.png)
 #### Message Padding
 - Blok terakhir masih belum terisi penuh
 - Bisa ditambah nilai non-data, seperti *null*
