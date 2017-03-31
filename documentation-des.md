@@ -25,3 +25,24 @@ Proses dari kunci 56 bit :
 1. Kunci melewati fungsi dari permutasi 
 2. Pergeseran kunci untuk memilih perulangan permutasi kunci sebanyak 16 kali yang menghasilkan Subkey(Ki) yang diproses dengan kombinasi permutasi. 
 3. Perbedaan dari Subkey(Ki) akan dilakukan pergeseran kunci yang menghasilkan kombinasi plaintext 64 bit dengan kunci 56 bit. 
+#
+## Metode CBC
+Pada tugas kali ini, kami mengerjakan enkripsi dan dekripsi dari DES menggunakan metode Cipher Block Chaining (CBC).
+#### CBC
+Cipher Block Chaining(CBC) adalah modus operasi untuk block cipher (salah satu di mana urutan bit dienkripsi sebagai satu kesatuan atau blok dengan kunci cipher diterapkan pada seluruh blok). *Block Chaining Cipher* menggunakan apa yang dikenal sebagai vektor inisialisasi(**IV**) dari panjang tertentu. Salah satu karakteristik kunci adalah bahwa ia menggunakan mekanisme chaining yang menyebabkan dekripsi blok ciphertext bergantung pada semua blok ciphertext sebelumnya.
+- Blok-blok saling terhubung dalam enkripsi
+- Blok cipher sebelumnya digunakan dalam menghitung blok cipher selanjutnya
+- Menggunakan *Initial Vector* (IV) untuk memulai proses
+- Penggunaan enkripsi berukuran besar dan autentikasi
+#### Message Padding
+- Blok terakhir masih belum terisi penuh
+- Bisa ditambah nilai non-data, seperti *null*
+- Bisa juga ditambah 0 beserta jumlahnya
+  - Contoh: [b1 b2 b3 0 0 0 0 5]
+  - Tiga bit data, *padding* 0 sebanyak 5
+### Kelemahan dan Kelebihan CBC
+- Setiap blok tergantung blok sebelumnya
+- Perubahan pada satu blok berpengaruh pada blok selanjutnya
+- Memerlukan *Initialization Vector* (IV)
+  - Harus diketahui *sender* dan *receiver*
+  - Memerlukan kanal komunikasi atau cara pengiriman lain yang aman
