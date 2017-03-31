@@ -4,9 +4,7 @@
 #
 #
 ## Pendahuluan
-DES atau singkatan dari *Data Encrypted Standard* merupakan algoritma penyandian yang diadopsi dan dibakukan oleh NBS (National Bureau Standard) yang kini menjadi NIST (National Institute of Standards and Technology) pada tahun 1977 sebagai FIPS 46 (Federal Information Processing Standard). Pada mulanya, algoritma yang kini disebut DES, memiliki panjang kunci sandi 128 bit. Namun selama proses pengadopsian, NBS melibatkan NSA (National Security Agency), dan algoritma sandi ini mengalami pengurangan ukuran kunci sandi dari 128 bit menjadi 56 bit saja. Bila dibandingkan dengan performa komputer personal pada saat itu, algoritma sandi dengan panjang kunci 56 bit dapat dikatakan cukup aman bila digunakan oleh orang-orang “biasa”, tapi dapat dengan mudah dipecahkan dengan peralatan canggih dan tentunya kepemilikan alat canggih ini hanya dapat dijangkau oleh organisasi elit seperti NSA. Dengan dukungan dana yang melimpah, pembuatan alat brute‐force DES bukanlah hal yang mustahil pada saat itu.
-#
-## Dasar Teori
+DES atau singkatan dari *Data Encrypted Standard* merupakan algoritma penyandian yang diadopsi dan dibakukan oleh NBS (National Bureau Standard) yang kini menjadi NIST (National Institute of Standards and Technology) pada tahun 1977 sebagai FIPS 46 (Federal Information Processing Standard). Pada mulanya, algoritma yang kini disebut DES, memiliki panjang kunci sandi 128 bit. Namun selama proses pengadopsian, NBS melibatkan NSA (National Security Agency), dan algoritma sandi ini mengalami pengurangan ukuran kunci sandi dari 128 bit menjadi 56 bit saja.
 DES merupakan algoritma enkripsi blok simetris. DES dikatakan enkripsi blok karena pemrosesan data baik enkripsi maupun dekripsi, diimplementasikan per blok (dalam hal ini 8 byte). DES dikatakan enkripsi simetris karena algoritma yang digunakan untuk enkripsi relatif atau bahkan sama persis dengan algoritma yang digunakan dalam proses dekripsi. Proses enkripsi dapat didefinisikan secara sederhana sebagai proses penterjemahan data “asli” yang “jelas” dan “kasat mata” yang dapat dipahami maknanya.
 #
 ## Tahapan Umum
@@ -63,3 +61,16 @@ Skema dari mode operasi CBC dapat digambarkan sebagai berikut:
 3. Setelah itu dikirimkan ciphertext pertamanya kepada *receiver*
 4. Untuk plaintext ke-2 dan selanjutnya, sebelum dienkripsi *sender* harus meng-XOR-kan terlebih dahulu dengan ciphertext sebelumnya.
 5. Setelah dienkripsi, baru pesan tersebut dapat dikirimkan kepada *receiver* sebagai ciphertext 2 dan seterusnya.
+6. Pada enkripsi blok pertama C0 = IV
+7. IV diberikan oleh pengguna atau dibangkitkan secara acak oleh program. IV bersifat tidak rahasia.
+8. Jadi untuk menghasilkan blok ciphertext pertama (Ci), IV digunakan untuk menggantikan blok ciphertext sebelumnya C0.
+9. Sebaliknya pada dekripsi, blok plaintext pertama diperoleh dengan cara meng-XOR-kan IV dengan hasil dekripsi terhadap blok ciphertext pertama.
+Secara matematis enkripsi dan dekripsi dengan mode CBC dinyatakan sebagai berikut:
+![alt text](https://github.com/rahmadini/CBC/blob/master/endekrip.png)
+#
+## Sifat-sifat dari mode operasi CBC:
+1. Lebih aman dari active attacks dibandingkan mode operasi ECB
+2. Error pada satu ciphertext dapat berakibat parah
+3. Menutupi pola plaintext
+#
+# Sekian dan Terima Kasih
