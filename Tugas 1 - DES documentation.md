@@ -57,7 +57,7 @@ Cipher Block Chaining(CBC) adalah modus operasi untuk block cipher (salah satu d
 #
 ## Tahapan CBC
 Skema dari mode operasi CBC dapat digambarkan sebagai berikut:
-
+  ![alt text](https://github.com/rahmadini/CBC/blob/master/Skema.png)
 1. Mula-mula *sender* harus meng-XOR-kan plaintext dengan **IV**
 2. Kemudian dienkripsi
 3. Setelah itu dikirimkan ciphertext pertamanya kepada *receiver*
