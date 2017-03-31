@@ -74,4 +74,11 @@ Secara matematis enkripsi dan dekripsi dengan mode CBC dinyatakan sebagai beriku
 2. Error pada satu ciphertext dapat berakibat parah
 3. Menutupi pola plaintext
 #
+#### Referensi:
+1. http://www.metode-algoritma.com/2016/01/kriptografi-cipher-block-chaining-cbc.html
+2. http://octarapribadi.blogspot.co.id/2016/02/enkripsi-dan-dekripsi-menggunakan-rsa.html
+3. https://dirpratama.wordpress.com/2012/04/11/mengenal-data-encryption-standard-des/
+4. https://dirpratama.wordpress.com/2012/04/11/mengenal-data-encryption-standard-des/
+5. PPT Security 04, PPT Pak Tohari.
+#
 # Sekian dan Terima Kasih
