@@ -238,6 +238,8 @@ if __name__ == '__main__':
         print ValueError('Mode yang dimasukkan salah')
     
     IV = '08080707'
+    with open('key.txt', 'rb') as f:
+        key = f.read()
     bin_iv = string2binary(IV)
     bin_key = string2binary(key)      
     hasil = []   
